@@ -6,5 +6,5 @@ if ( strlen(session_id()) < 1){ //strlen = string lenght
 }
 //Definimos variables globlales
 define('LIBS', 'libs/');
-define('TEMPLATE', 'template/ceduc2020');
+define('TEMPLATE', 'templates/ceduc2020');
 define ('URL', 'http://192.168.200.100/ceduc_web/');

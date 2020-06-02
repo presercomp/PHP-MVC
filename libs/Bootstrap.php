@@ -72,8 +72,8 @@ class Bootstrap {
     }
 
     private function _error($type) {
-        require $this->_controllerPath . $this>_errorFile; 
-        $this->_controller = new Error();
+        require $this->_controllerPath . $this->_errorFile; 
+        $this->_controller = new error();
         $this->_controller->index($type);
         exit;
     }

@@ -1,7 +1,10 @@
 <?php
-class error extends Controller{
-    function __construct() {
+class ModuleError extends Controller{
+    private $_type;
+
+    function __construct($type) {
         parent::__construct();
+        $this->_type = $type;
     }
 
     function index(){

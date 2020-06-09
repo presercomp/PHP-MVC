@@ -6,15 +6,10 @@ class Bootstrap {
     private $_controller = null;
 
     private $_controllerPath = "controllers/";
-    private $_errorFile      = "error.php";
+    private $_errorFile      = "ModuleError.php";
     private $_defaultFile    = "index.php";
 
     public function init() {
-
-        //Invocamos al método para captuar la URL
-        $this->_getUrl();
-        //cargamos el controlador por defecto si no hay una
-        //Ej: Cuando carga http://localhost , traereá el controlador por defecto
         if(empty($this->_url[0])) {
             $this->_loadDefaultController();
             return false;
@@ -29,7 +24,7 @@ class Bootstrap {
      */
     private function _loadDefaultController() {
         require $this->_controllerPath . $this->_defaultFile;
-        $this->_controller = new Index();
+        $this->_controller = new index();
         $this->_controller->index();
     }
 
@@ -39,7 +34,7 @@ class Bootstrap {
             require $file;
             $this->_controller = new $this->_url[0];
         } else {
-            $this->_error("404");
+            $this->_loadErrorController("404");
             return false;
         }
     }
@@ -48,7 +43,7 @@ class Bootstrap {
         $length = count($this->_url);
         if ($length > 1) {
             if(!method_exists($this->_controller, $this->_url[1])) {
-                $this->_error("404");
+                $this->_loadErrorController("404");
             }
         }
         switch($length) {
@@ -71,10 +66,13 @@ class Bootstrap {
 
     }
 
-    private function _error($type) {
-        require $this->_controllerPath . $this->_errorFile; 
-        $this->_controller = new error();
-        $this->_controller->index($type);
+    private function _loadErrorController($type) {
+        if (!class_exists('ModuleError')){
+            require_once $this->_controllerPath . $this->_errorFile; 
+        }
+        
+        $this->_controller = new ModuleError($type);
+        $this->_controller->index();
         exit;
     }
 

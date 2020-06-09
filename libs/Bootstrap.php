@@ -6,10 +6,11 @@ class Bootstrap {
     private $_controller = null;
 
     private $_controllerPath = "controllers/";
-    private $_errorFile      = "ModuleError.php";
+    private $_errorFile      = "module_error.php";
     private $_defaultFile    = "index.php";
 
     public function init() {
+        $this->_getUrl();
         if(empty($this->_url[0])) {
             $this->_loadDefaultController();
             return false;
@@ -23,6 +24,7 @@ class Bootstrap {
      * Carga el controlador por defecto
      */
     private function _loadDefaultController() {
+        $file = $this->_controllerPath . $this->_defaultFile;
         require $this->_controllerPath . $this->_defaultFile;
         $this->_controller = new index();
         $this->_controller->index();
@@ -81,6 +83,7 @@ class Bootstrap {
         $url = str_replace("-", "_", $url);
         $url = rtrim($url ,'/');
         $url = filter_var($url, FILTER_SANITIZE_URL);
+        $url = $url === "index.php" ? null : $url;
         $this->_url = explode('/', $url);
     }
 }

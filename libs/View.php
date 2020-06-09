@@ -8,8 +8,8 @@ class View {
     public function render($view, $name, $panel=false) {
         $this->view = $view;
         $this->panel = $panel;
-        require TEMPLATE . "header.php";
+        require TEMPLATE . "/header.php";
         require 'views/' . $view. '/'. $name . '.php';
-        require TEMPLATE . "footer.php";
+        require TEMPLATE . "/footer.php";
     }
 }

@@ -25,13 +25,13 @@ class Bootstrap {
      */
     private function _loadDefaultController() {
         $file = $this->_controllerPath . $this->_defaultFile;
-        require $this->_controllerPath . $this->_defaultFile;
+        require $file;
         $this->_controller = new index();
         $this->_controller->index();
     }
 
     private function _loadExistingController() {
-        $file = $this->_controllerPath . $this->_url[0]."php";
+        $file = $this->_controllerPath . $this->_url[0].".php";
         if (file_exists($file)) {
             require $file;
             $this->_controller = new $this->_url[0];

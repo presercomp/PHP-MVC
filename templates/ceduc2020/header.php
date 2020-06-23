@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <base href="<?php echo URL; ?>">
     <meta charset="UTF-8">

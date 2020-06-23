@@ -83,7 +83,7 @@ class Bootstrap {
         $url = str_replace("-", "_", $url);
         $url = rtrim($url ,'/');
         $url = filter_var($url, FILTER_SANITIZE_URL);
-        $url = $url === "index.php" ? null : $url;
+        //$url = $url === "index.php" ? null : $url;
         $this->_url = explode('/', $url);
     }
 }

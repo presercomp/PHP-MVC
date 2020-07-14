@@ -28,9 +28,27 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-pencil-alt"></i>
+            <a href="asistencia" class="nav-link">
+              <i class="nav-icon fas fa-clipboard-list"></i>
               <p>Asistencia</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="aulaVirtual" class="nav-link">
+              <i class="nav-icon fas fa-graduation-cap"></i>
+              <p>Aula Virtual</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="calificaciones" class="nav-link">
+              <i class="nav-icon fas fa-pencil-alt"></i>
+              <p>Calificaciones</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="horario" class="nav-link">
+              <i class="nav-icon fas fa-calendar-alt"></i>
+              <p>Horario de Clases</p>
             </a>
           </li>
         </ul>
